@@ -1,6 +1,6 @@
-# 鐵定幸福 (Iron Happiness) - Project Instructions & Architectural Guide
+# 陽光營養 (Sunshine Nutrition) - Project Instructions & Architectural Guide
 
-Welcome to **鐵定幸福 (Iron Happiness)**, a digital health education trial project. This workspace contains the codebase for both the patient-facing educational portal and the backend database integration and reward system.
+Welcome to **陽光營養 (Sunshine Nutrition)**, a digital health education trial project. This workspace contains the codebase for both the patient-facing educational portal and the backend database integration and reward system.
 
 ---
 
