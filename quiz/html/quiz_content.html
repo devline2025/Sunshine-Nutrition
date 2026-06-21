@@ -1,0 +1,41 @@
+<input type="checkbox" id="toggler" hidden>
+<label for="toggler">
+    <div class="head-div">
+    <a href="#" onclick="goBack()" class="back-botton">
+        <img src="../src/arrow_back.png">
+    </a>
+    <a href="../index.html" class="home-botton">
+        <img src="../src/home.png">
+    </a>
+    <img src="../src/title.jpg" class="title-list">
+    <div class="menu-container">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    </div>
+</label>
+
+<div class="menu-overlay"></div>
+<div class="menu-items"></div>
+
+<div class="quiz-outer">
+    <div class="quiz-container" id="quiz-container"></div>
+</div>
+
+<div class="progress-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="progress-track">
+    <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text" id="progressText">0/0(0%)</div>
+</div>
+
+<div id="resultModal" class="modal hidden">
+    <div class="result-box">
+    <p id="resultText"></p>
+    <p id="explanationText"></p>
+    <button onclick="closeModal()" class="next-botton">下一題</button>
+    </div>
+</div>
+<!-- Unified Side Menu Manager -->
+<script src="../../javascript/menu.js"></script>
