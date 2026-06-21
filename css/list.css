@@ -1,33 +1,46 @@
-.heading{
-  font-size: 1.5rem;     
-  font-weight: 450;  
+/* ==========================================================================
+   3. Lists & Landing Buttons - Organic Warm Peach & Editorial Spacing
+   ========================================================================== */
+.heading {
+  font-size: 1.55rem;     
+  font-weight: 600;  
   text-align: center;   
-  margin-bottom: 1rem; 
-  margin-top: 1rem; 
+  margin-bottom: 1.5rem; 
+  margin-top: 1.5rem; 
+  color: #d95c3a; /* Elegant terracotta color for key headings */
+  letter-spacing: 0.5px;
 }
 
-.botton-one, .botton-two{
+.botton-one, .botton-two, .botton-three {
   display: block;
-  margin: 0 2.2rem 1rem;
-  border-radius: 5rem;
-  box-shadow: 
-    8px 8px 20px #c1bfbf,
-    -8px -8px 30px #ffffff; 
-  font-weight: 400;
-  font-size: 1.2rem;
+  margin: 0 auto 1.2rem;
+  border-radius: 18px; /* Elegant soft-rounded button cards */
+  box-shadow: 0 8px 24px rgba(217, 92, 58, 0.08),
+              0 2px 6px rgba(0, 0, 0, 0.02); /* Gentle organic shadow */
+  font-weight: 500;
+  font-size: 1.15rem;
   text-align: center;
-  padding: 3rem 1rem; 
-  width: 80%;
-  transition: all 0.1s ease;
-  border: none;
+  padding: 2.2rem 1.2rem; 
+  width: 82%;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Elegant fluid bounce motion */
+  border: 1px solid rgba(217, 92, 58, 0.12); /* Subtle borders */
+  background: linear-gradient(135deg, #ffdcd0, #fdfbf7); /* Rich maternal peachy-clay gradient */
+  color: #2b2b2b; /* Charcoal text color for beautiful typography */
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.botton-one:hover{
-  opacity: 0.9;
-  transform: translateY(-4px);  /* 漂浮效果 */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);  /* 加強陰影 */
+.botton-one:hover, .botton-two:hover, .botton-three:hover {
+  opacity: 0.95;
+  transform: translateY(-5px);  /* Slight lift effect */
+  box-shadow: 0 16px 36px rgba(217, 92, 58, 0.18),
+              0 4px 12px rgba(0, 0, 0, 0.04);  /* Deeper soft shadow on hover */
+  border-color: rgba(217, 92, 58, 0.3);
+  color: #d95c3a; /* Shifts text color to terracotta on hover */
 }
 
-.botton-one{
-  background-color: #FFD6C2;        
+/* Ensure link styles do not interfere with text readability */
+a.botton-one, a.botton-two, a.botton-three {
+  color: #2b2b2b;
 }
