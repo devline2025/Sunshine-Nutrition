@@ -3,6 +3,11 @@
 /* ==========================================================================
    Root Landing Page Stylesheet - Warm Organic Maternal Portal
    ========================================================================== */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: #fdfbf7; /* Soothing warm cream paper base */
@@ -73,6 +78,8 @@ section {
   padding: 8% 12%;
   box-sizing: border-box;
   transition: background 0.6s ease;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 section p {
@@ -87,7 +94,7 @@ section p {
 
 /* Individual section background themes for unique brand identities */
 #about {
-  background: linear-gradient(135deg, #fdfbf7, #f4eee3); /* Warm linen peach */
+  background: linear-gradient(135deg, #fff5f2 0%, #fdfbf7 50%, #f7f1e5 100%); /* Soft welcoming rose & warm cream linen */
 }
 
 #about p {
@@ -96,24 +103,20 @@ section p {
   border-radius: 16px;
 }
 
-#pregancy {
-  background: linear-gradient(135deg, #ffdcd0, #fdfbf7); /* Rich maternal peachy-clay */
-}
-
-#baby {
-  background: linear-gradient(135deg, #f2f6f3, #e5ece6); /* Fresh grass sage green */
+#iron {
+  background: linear-gradient(135deg, #ffdcd0 0%, #ffebd9 50%, #fdfbf7 100%); /* Rich maternal peachy rose to nourishing soft cream */
 }
 
 #vitamin-d {
-  background: linear-gradient(135deg, #fff3e3, #fdfbf7); /* Sunny vitamin sunshine-cream */
+  background: linear-gradient(135deg, #fff3e3 0%, #fefcf0 50%, #fdfbf7 100%); /* Sunny vitamin sunshine cream & bright golden hue */
 }
 
 #nutrition {
-  background: linear-gradient(135deg, #ffdcd0, #f0ede5); /* Terracotta sand */
+  background: linear-gradient(135deg, #eaf2eb 0%, #f6fbf7 50%, #fdfbf7 100%); /* Soothing organic sage green & fresh nourishing mint */
 }
 
 #quiz {
-  background: linear-gradient(135deg, #fdfbf7, #eae5df); /* Lavender cream */
+  background: linear-gradient(135deg, #f2f0f9 0%, #f8f7fc 50%, #fdfbf7 100%); /* Playful lavender mist & calming violet cream */
 }
 
 /* Typography & Links */
@@ -145,6 +148,7 @@ footer {
   text-align: center;
   padding: 2rem;
   box-shadow: inset 0 4px 20px rgba(0,0,0,0.1);
+  scroll-snap-align: end;
 }
 
 footer a {

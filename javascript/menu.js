@@ -9,7 +9,8 @@ function loadMenu() {
   } else if (
     path.includes("/anemia-in-baby/") ||
     path.includes("/anemia-in-pregancy/") ||
-    path.includes("/vitamin-d/") ||
+    path.includes("/pregancy-vitamin-d/") ||
+    path.includes("/baby-vitamin-d/") ||
     path.includes("/quiz/")
   ) {
     prefix = "../";
@@ -33,7 +34,8 @@ function loadMenu() {
         </ul>
         <li>維生素D補充指南</li>
         <ul>
-          <li><a href="${prefix}vitamin-d/html/vitamin_d_guide.html">好孕D計劃：維生素D補給全攻略</a></li>
+          <li><a href="${prefix}pregancy-vitamin-d/html/vitamin_d_guide.html">好孕D計劃：維生素D補給全攻略</a></li>
+          <li><a href="${prefix}baby-vitamin-d/html/baby_vitamin_d_guide.html">寶寶維生素D補給全攻略</a></li>
         </ul>
         <li>健康知識小測驗</li>
         <ul>
