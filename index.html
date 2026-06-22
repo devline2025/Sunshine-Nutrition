@@ -7,13 +7,26 @@
   <link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./css/head.css">
 </head>
 
 <body>
   <div class="content-box">
+    <input type="checkbox" id="toggler" hidden>
+    <label for="toggler" class="block md:hidden fixed top-[14px] right-4 z-[1050] cursor-pointer">
+      <div class="menu-container">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </label>
+
+    <label for="toggler" class="menu-overlay"></label>
+    <div class="menu-items"></div>
+
     <header>
       <h1>陽光營養</h1>
-      <nav>
+      <nav class="hidden md:block">
         <ul>
           <li><a href="#iron">補鐵防貧血</a></li>
           <li><a href="#vitamin-d">維生素D</a></li>
@@ -79,5 +92,6 @@
       </a>
     </footer>
   </div>
+  <script src="./javascript/menu.js"></script>
 </body>
 </html>
