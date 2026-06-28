@@ -194,3 +194,19 @@
   color: #d95c3a; /* Shifts warmth on hover */
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .back-botton, .home-botton {
+    height: 76%;
+    margin-left: -1px;
+  }
+
+  .home-botton {
+    margin-left: -4px;
+  }
+
+  .back-botton img, .home-botton img {
+    height: 82%;
+    width: 82%;
+  }
+}
