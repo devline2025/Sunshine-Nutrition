@@ -30,7 +30,7 @@ header {
   align-items: center;
   padding: 1.1rem 2.5rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-  z-index: 1000;
+  z-index: 1200;
   box-sizing: border-box;
 }
 

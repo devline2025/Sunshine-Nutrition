@@ -1,11 +1,33 @@
 // 依當前 html 檔名推測 json
 const currentPage = window.location.pathname.split("/").pop();
 const jsonFilename = currentPage.replace(".html", ".json");
+const scriptUrl = document.currentScript ? document.currentScript.src : "";
+const dataUrls = [
+  scriptUrl ? new URL(`../data/${jsonFilename}`, scriptUrl).href : "",
+  `../data/${jsonFilename}`,
+  `/quiz/data/${jsonFilename}`
+].filter(Boolean);
 
-fetch(`../data/${jsonFilename}`)
-  .then((res) => res.json())
+function loadQuizData(urls) {
+  return urls.reduce((request, url) => {
+    return request.catch(() => {
+      return fetch(url).then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${url}`);
+        }
+        return res.json();
+      });
+    });
+  }, Promise.reject());
+}
+
+loadQuizData(dataUrls)
   .then((data) => {
-    const quizContainer = document.getElementById("quiz-container");
+    const quizContainer = document.getElementById("quiz-questions") || document.getElementById("quiz-container");
+    const userIdSection = document.getElementById("userIdSection");
+    const quizSection = document.getElementById("quizSection");
+    const startQuizBtn = document.getElementById("startQuizBtn");
+    const quizFinish = document.getElementById("quiz-finish");
     const resultModal = document.getElementById("resultModal");
     const resultText = document.getElementById("resultText");
     const explanationText = document.getElementById("explanationText");
@@ -99,7 +121,12 @@ fetch(`../data/${jsonFilename}`)
         }
         // 全部完成
         updateProgress(totalQuestions, totalQuestions);
-        quizContainer.innerHTML = "<h2>🎉 小測驗完成，感謝您的作答！</h2>";
+        quizContainer.innerHTML = "";
+        if (quizFinish) {
+          quizFinish.classList.remove("hidden");
+        } else {
+          quizContainer.innerHTML = "<h2>🎉 小測驗完成，感謝您的作答！</h2>";
+        }
       }
     }
 
@@ -203,5 +230,21 @@ resultModal.classList.add("hidden");
       showNext();
     };
 
-    showNext();
+    if (startQuizBtn && userIdSection && quizSection) {
+      startQuizBtn.addEventListener("click", () => {
+        userIdSection.classList.add("hidden");
+        quizSection.classList.remove("hidden");
+        if (quizFinish) quizFinish.classList.add("hidden");
+        showNext();
+      });
+    } else {
+      showNext();
+    }
+  })
+  .catch((err) => {
+    console.error("載入題目失敗:", err);
+    const quizContainer = document.getElementById("quiz-container");
+    if (quizContainer) {
+      quizContainer.innerHTML = "<h2>題目載入失敗，請重新整理頁面。</h2>";
+    }
   });
