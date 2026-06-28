@@ -63,6 +63,11 @@ loadQuizData(dataUrls)
     const wrongSet = new Set();
 
     function renderQuestion(q) {
+      quizContainer.classList.remove("hidden");
+      if (quizFinish) {
+        quizFinish.classList.add("hidden");
+      }
+
       const isKnowledge = q.type === "knowledge";
       const questionText = isKnowledge ? q.question : q.statement;
 
@@ -124,6 +129,7 @@ loadQuizData(dataUrls)
         // 全部完成
         updateProgress(totalQuestions, totalQuestions);
         quizContainer.innerHTML = "";
+        quizContainer.classList.add("hidden");
         if (quizFinish) {
           quizFinish.classList.remove("hidden");
         } else {
