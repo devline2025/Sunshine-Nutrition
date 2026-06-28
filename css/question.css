@@ -240,16 +240,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 9% 7%;
+  gap: 0.85rem;
+  padding: 8% 7%;
   overflow: hidden;
   text-align: center;
   border-radius: 18px;
   background:
     radial-gradient(circle at 50% 18%, rgba(255, 220, 208, 0.92), transparent 31%),
     linear-gradient(160deg, #fffaf3 0%, #fdfbf7 48%, #edf5ef 100%);
-  border: 1px solid rgba(217, 92, 58, 0.1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  border: 2px solid rgba(217, 92, 58, 0.18);
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.58),
+              0 12px 28px rgba(169, 100, 36, 0.12);
   box-sizing: border-box;
 }
 
@@ -263,14 +264,16 @@
 }
 
 .finish-box img {
-  width: min(68%, 12rem);
-  max-height: 7.6rem;
-  object-fit: contain;
-  padding: 0.85rem 1rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(92, 122, 104, 0.12);
-  box-shadow: 0 12px 26px rgba(169, 100, 36, 0.12);
+  width: min(62%, 10.5rem);
+  aspect-ratio: 1 / 1;
+  max-height: 10.5rem;
+  object-fit: cover;
+  object-position: center;
+  padding: 0.45rem;
+  border-radius: 22px;
+  background: #fff;
+  border: 2px solid rgba(92, 122, 104, 0.16);
+  box-shadow: 0 12px 26px rgba(169, 100, 36, 0.16);
 }
 
 .finish-box p {
@@ -420,9 +423,9 @@
   }
 
   .finish-box img {
-    width: min(58%, 9.5rem);
-    max-height: 5.8rem;
-    padding: 0.65rem 0.8rem;
+    width: min(52%, 7.8rem);
+    max-height: 7.8rem;
+    padding: 0.35rem;
   }
 
   .finish-link {
