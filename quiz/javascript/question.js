@@ -261,7 +261,8 @@ loadQuizData(dataUrls)
         session_id: quizSessionId,
         question_id: q.id,
         selected_option: userAnswer,
-        is_correct: isCorrect
+        is_correct: isCorrect,
+        quiz_id: currentPage.replace(".html", "")  // 自動抓檔名，例如 "baby_ch2"
       });
 
       resultModal.classList.remove("hidden");
