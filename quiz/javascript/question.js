@@ -7,6 +7,20 @@ const dataUrls = [
   `../data/${jsonFilename}`,
   `/quiz/data/${jsonFilename}`
 ].filter(Boolean);
+const quizApiConfig = window.QUIZ_API_CONFIG || {};
+const quizApiBaseUrl = quizApiConfig.baseUrl || (
+  ["localhost", "127.0.0.1"].includes(window.location.hostname) ? "http://localhost:3000" : ""
+);
+const quizApiKey = quizApiConfig.apiKey || "3jnDfg4nw0wSDkb4295NBJkdwhuf378S";
+const quizAnswerEndpoints = quizApiConfig.answerEndpoints || [
+  "/answers",
+  "/api/quiz-answers",
+  "/api/answers",
+  "/quiz-answers"
+];
+const quizSessionId = (
+  window.crypto && typeof window.crypto.randomUUID === "function"
+) ? window.crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
 
 function loadQuizData(urls) {
   return urls.reduce((request, url) => {
@@ -21,10 +35,42 @@ function loadQuizData(urls) {
   }, Promise.reject());
 }
 
+function submitQuizAnswer(payload) {
+  if (!quizApiBaseUrl) {
+    console.warn("Quiz answer was not submitted: backend base URL is not configured.", payload);
+    return Promise.resolve(false);
+  }
+
+  const urls = quizAnswerEndpoints.map(endpoint => new URL(endpoint, quizApiBaseUrl).href);
+
+  return urls.reduce((request, url) => {
+    return request.catch(() => {
+      return fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": quizApiKey
+        },
+        body: JSON.stringify(payload)
+      }).then(async (res) => {
+        if (!res.ok) {
+          const text = await res.text().catch(() => "");
+          throw new Error(`HTTP ${res.status}: ${url} ${text}`);
+        }
+        return true;
+      });
+    });
+  }, Promise.reject()).catch((err) => {
+    console.error("Quiz answer submission failed:", err, payload);
+    return false;
+  });
+}
+
 loadQuizData(dataUrls)
   .then((data) => {
     const quizContainer = document.getElementById("quiz-questions") || document.getElementById("quiz-container");
     const userIdSection = document.getElementById("userIdSection");
+    const userIdInput = document.getElementById("userIdInput");
     const quizSection = document.getElementById("quizSection");
     const startQuizBtn = document.getElementById("startQuizBtn");
     const quizFinish = document.getElementById("quiz-finish");
@@ -57,6 +103,7 @@ loadQuizData(dataUrls)
     let mode = "knowledge_initial"; // knowledge_initial → knowledge_review → attitude
     let kIndex = 0;                 // 知識題目前索引（第一輪）
     let aIndex = 0;                 // 態度題目前索引
+    let userId = "無";
 
     // 錯題佇列（FIFO）與集合避免重複排隊
     const wrongQueue = [];
@@ -175,8 +222,10 @@ loadQuizData(dataUrls)
       }
 
       // 判題 + 回饋
+      let isCorrect = null;
       if (q.type === "knowledge") {
         if (userAnswer === q.correct) {
+          isCorrect = true;
           resultText.textContent = "✅ 答對了！";
           // progress: mark cleared if first time
           if (!clearedKnowledge.has(q.id)) {
@@ -191,6 +240,7 @@ loadQuizData(dataUrls)
             wrongQueue.shift();
           }
         } else {
+          isCorrect = false;
           resultText.textContent = "❌ 錯了唷～";
           explanationText.textContent = q.feedback.incorrect;
 
@@ -205,6 +255,14 @@ loadQuizData(dataUrls)
         lastAttitudeAnswered = true;
         explanationText.textContent = isAgree ? q.feedback.agree : q.feedback.disagree;
       }
+
+      submitQuizAnswer({
+        user_id: userId,
+        session_id: quizSessionId,
+        question_id: q.id,
+        selected_option: userAnswer,
+        is_correct: isCorrect
+      });
 
       resultModal.classList.remove("hidden");
     };
@@ -240,6 +298,7 @@ resultModal.classList.add("hidden");
 
     if (startQuizBtn && userIdSection && quizSection) {
       startQuizBtn.addEventListener("click", () => {
+        userId = (userIdInput && userIdInput.value.trim()) || "無";
         userIdSection.classList.add("hidden");
         quizSection.classList.remove("hidden");
         if (quizFinish) quizFinish.classList.add("hidden");
