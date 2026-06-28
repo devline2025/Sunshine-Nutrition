@@ -33,24 +33,28 @@
 .home-botton ~ .title,
 .back-botton ~ .title-list,
 .home-botton ~ .title-list {
-  width: min(48%, 190px);
+  width: min(56%, 220px);
   height: auto;
-  max-height: 86%;
+  max-height: 94%;
 }
 
 .back-botton, .home-botton {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75%;
+  height: 64%;
   aspect-ratio: 1 / 1; 
   border-radius: 50%; 
   background: transparent; 
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-left: 0;
+  margin-left: -2px;
   cursor: pointer;
   position: relative;
   z-index: 1300;
+}
+
+.home-botton {
+  margin-left: -5px;
 }
 
 .back-botton:hover, .home-botton:hover {
@@ -59,8 +63,8 @@
 }
 
 .back-botton img, .home-botton img {
-  height: 60%;
-  width: 60%;
+  height: 74%;
+  width: 74%;
   object-fit: contain;
 }
 

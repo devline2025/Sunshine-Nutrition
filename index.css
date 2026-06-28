@@ -6,6 +6,7 @@
 html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
+  scroll-padding-top: 76px;
 }
 
 body {
@@ -67,9 +68,14 @@ header nav ul li a:hover {
   color: #ffdcd0; /* Transitions to beautiful peachy pink on hover */
 }
 
+.mobile-menu-toggle {
+  display: none;
+}
+
 /* Section styling with soft, organic alternating background panels */
 section {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -165,6 +171,15 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    position: fixed;
+    top: 14px;
+    right: 1rem;
+    z-index: 1400;
+    cursor: pointer;
+  }
+
   header {
     flex-direction: row;
     justify-content: space-between;

@@ -35,7 +35,7 @@ The platform is structured into highly visual, responsive, and easy-to-digest in
 *   Provides pediatric nutrition plans, solid food recommendations (complementary feeding), and supplement guidance.
 *   Explains safe breastfeeding techniques and transition plans.
 
-### ☀️ 3. "Good Pregnancy D Plan" Vitamin D Guide (`/vitamin-d`)
+### ☀️ 3. Vitamin D Guides (`/pregancy-vitamin-d`, `/baby-vitamin-d`)
 *   Offers step-by-step guidance on Vitamin D supplementation for pregnant mothers and newborns.
 *   Highlights daily recommended intakes, sunlight exposure tips, and dietary sources of Vitamin D.
 
@@ -46,6 +46,8 @@ To reinforce learning and measure knowledge retention, the portal features an ad
 *   **Active Learning & Review Phase**: Users must re-evaluate and correctly answer their queued mistakes to complete the quiz, promoting actual learning.
 *   **Attitude Evaluation**: Likert-scale questions ("Strongly Agree" to "Strongly Disagree") that gauge behavioral intentions.
 *   **Visual Progress Tracking**: Real-time animated CSS progress bars keep users engaged and motivated.
+*   **Start Screen Flow**: Quiz pages begin with a styled participant ID input screen before rendering questions.
+*   **Resilient Data Loading**: Quiz JSON files are loaded with fallback paths so chapter pages remain stable across local servers and deployed paths.
 
 ### 🥦 5. External Resource Hubs
 Integrated external links to detailed curation repositories (via Notion) for:
@@ -62,6 +64,8 @@ Integrated external links to detailed curation repositories (via Notion) for:
     *   **Modular Custom CSS**: Found in sub-modules to maintain precise control over mobile rendering, animated sliders, and progress indicators.
 *   **Typography**: Implements the **LXGW WenKai (霞鶩文楷)** font family via a lightweight Webfont CDN. Its warm, handwriting-like appearance delivers a friendly, empathetic, and professional educational aesthetic.
 *   **Data-Driven Dynamic Sliders**: Client-side JavaScript fetches structured localized JSON data (e.g., `anemia-in-baby/data/*.json`) to generate interactive slider cards dynamically, ensuring content is easily maintainable and decoupled from HTML structure.
+*   **Responsive Header System**: Shared header styles provide centered Sunshine logo placement, compact back/home controls, and a mobile side menu for module pages.
+*   **Landing Page Scrolling**: The root landing page uses full-screen section snapping with scroll-triggered section animations and a mobile hamburger menu.
 
 ---
 
@@ -73,35 +77,43 @@ Integrated external links to detailed curation repositories (via Notion) for:
 ├── index.css                    # Stylings for the landing page
 ├── GEMINI.md                    # Developer-specific context and instructions
 ├── README.md                    # Main English project documentation (this file)
-├── css/                         # Shared CSS layouts (fonts, questions, headers, lists)
+├── sunhine_logo.jpg             # Shared source logo copied into module asset folders
+├── css/                         # Shared CSS layouts (base, headers, lists, questions)
 ├── javascript/                  # Shared JS interactions (menus)
 │
 ├── anemia-in-pregancy/          # Module: Maternal/Pregnancy Anemia
 │   ├── index.html               # Module entry point
 │   ├── data/                    # JSON data driving pregnancy nutrition guides
 │   ├── html/                    # Sub-content pages (effects, supplement guides)
-│   ├── javascript/              # Slider animation and responsive header logic
+│   ├── javascript/              # Slider rendering and back navigation
 │   └── src/                     # Locally optimized clinical & diet graphics
 │
 ├── anemia-in-baby/              # Module: Infant Anemia & Care
 │   ├── index.html               # Module entry point
 │   ├── data/                    # JSON data driving baby anemia sliders
-│   ├── html/                    # Sub-content pages (deficiency list, guide slides)
+│   ├── html/                    # Sub-content pages (deficiency guide, supplement guide)
 │   ├── javascript/              # Navigation and slide rendering engine
 │   └── src/                     # Visual pediatric assets
 │
-├── vitamin-d/                   # Module: Vitamin D Guidance
+├── pregancy-vitamin-d/          # Module: Pregnancy Vitamin D Guidance
 │   ├── index.html               # Module entry point
-│   ├── data/                    # JSON data for Vitamin D dosage guides
-│   ├── html/                    # Content templates
-│   ├── javascript/              # Navigation logic
-│   └── src/                     # Local visual guides
+│   ├── data/                    # JSON data for pregnancy Vitamin D guide
+│   ├── html/                    # Content page
+│   ├── javascript/              # Slide rendering and back navigation
+│   └── src/                     # Local visual assets
+│
+├── baby-vitamin-d/              # Module: Infant Vitamin D Guidance
+│   ├── index.html               # Module entry point
+│   ├── data/                    # JSON data for baby Vitamin D guide
+│   ├── html/                    # Content page
+│   ├── javascript/              # Slide rendering and back navigation
+│   └── src/                     # Local visual assets
 │
 └── quiz/                        # Module: Interactive Quiz Engine
     ├── index.html               # Main quiz entry page
     ├── data/                    # Categorized question pools (Chapters 2 & 3)
     ├── html/                    # Pathway layouts (pregnancy vs. infant)
-    ├── javascript/              # Stateful game engine, FIFO queue, progress animation
+    ├── javascript/              # Stateful game engine, FIFO queue, data loader, progress animation
     └── src/                     # Quiz-specific illustrations and UI icons
 ```
 

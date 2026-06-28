@@ -70,13 +70,15 @@ loadQuizData(dataUrls)
         <label>
           <input type="radio" name="option" value="${opt}"> 
             <span>${opt}</span>
-        </label><br>
+        </label>
       `).join("");
 
       quizContainer.innerHTML = `
         <h2>${questionText}</h2>
         <form id="${q.id}">
-          ${optionsHTML}
+          <div class="quiz-options">
+            ${optionsHTML}
+          </div>
           <button type="button" class="question-botton" onclick="checkAnswer()">提交</button>
         </form>
       `;
