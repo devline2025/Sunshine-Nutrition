@@ -22,24 +22,31 @@ function loadMenu() {
     // Dynamically overwrite with the single, centralized source of truth
     menuItems.innerHTML = `
       <ul>
-        <li>孕期補鐵防貧血</li>
+        <li>補 D 強骨骼</li>
         <ul>
-          <li><a href="${prefix}anemia-in-pregancy/html/iron_deficiency_effects.html">缺鐵對媽媽、寶寶的影響</a></li>
-          <li><a href="${prefix}anemia-in-pregancy/html/iron_supplement_guide.html">孕期補鐵全攻略</a></li>
+          <li><a href="${prefix}pregancy-vitamin-d/index.html">孕媽咪好孕D計劃</a></li>
+          <li><a href="${prefix}baby-vitamin-d/index.html">寶寶維生素D補充</a></li>
         </ul>
-        <li>嬰幼兒補鐵攻略</li>
+        <li>營養&飲食</li>
         <ul>
-          <li><a href="${prefix}anemia-in-baby/html/iron_deficiency.html">六個月後容易缺鐵？<br>必知的風險提醒</a></li>
-          <li><a href="${prefix}anemia-in-baby/html/iron_supplement_guide.html">寶寶補鐵全攻略<br>吃對食物氣色好</a></li>
+          <li><a href="https://victorious-pumpkin-7e8.notion.site/223ecd06543b8032a211e783ddffcf81">點我複習</a></li>
         </ul>
-        <li>維生素D補充指南</li>
+        <li>補鐵防貧血</li>
         <ul>
-          <li><a href="${prefix}pregancy-vitamin-d/html/vitamin_d_guide.html">好孕D計劃：維生素D補給全攻略</a></li>
-          <li><a href="${prefix}baby-vitamin-d/html/baby_vitamin_d_guide.html">寶寶維生素D補給全攻略</a></li>
+          <li><a href="${prefix}anemia-in-pregancy/index.html">孕媽咪補鐵攻略</a></li>
+          <li><a href="${prefix}anemia-in-baby/index.html">寶寶補鐵攻略</a></li>
         </ul>
-        <li>健康知識小測驗</li>
+        <li>小測驗</li>
         <ul>
-          <li><a href="${prefix}quiz/index.html">點我開始測驗</a></li>
+          <li><a href="${prefix}quiz/quiz_type.html">點我開始測驗</a></li>
+        </ul>
+        <li>資訊站</li>
+        <ul>
+          <li><a href="https://victorious-pumpkin-7e8.notion.site/238ecd06543b801eaecfe7e0527b19de?source=copy_link">前往資訊站</a></li>
+        </ul>
+        <li>常見問題</li>
+        <ul>
+          <li><a href="https://victorious-pumpkin-7e8.notion.site/238ecd06543b8084aef8c5aee1d9c9e6?source=copy_link">查看常見問題</a></li>
         </ul>
       </ul>
     `;

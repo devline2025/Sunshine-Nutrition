@@ -103,12 +103,6 @@ section p {
   background: linear-gradient(135deg, #fff5f2 0%, #fdfbf7 50%, #f7f1e5 100%); /* Soft welcoming rose & warm cream linen */
 }
 
-#about p {
-  background-color: rgba(217, 92, 58, 0.03);
-  border: 1px dashed rgba(217, 92, 58, 0.15);
-  border-radius: 16px;
-}
-
 #iron {
   background: linear-gradient(135deg, #ffdcd0 0%, #ffebd9 50%, #fdfbf7 100%); /* Rich maternal peachy rose to nourishing soft cream */
 }

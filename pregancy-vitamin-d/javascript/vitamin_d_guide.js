@@ -2,20 +2,22 @@ const currentPage = window.location.pathname.split("/").pop();
 const jsonFilename = currentPage.replace(".html", ".json");
 
 const localFallback = {
-  "vitamin_d_guide.html": [
-    "../src/guide_image/D-plan.png",
-    "../src/guide_image/1-1.png",
-    "../src/guide_image/1-2.png",
-    "../src/guide_image/2.png",
-    "../src/guide_image/3.png",
-    "../src/guide_image/4-1.png",
-    "../src/guide_image/4-2.png",
-    "../src/guide_image/4-3.png",
-    "../src/guide_image/4-4.png",
-    "../src/guide_image/4-5.png",
-    "../src/guide_image/4-6.png",
-    "../src/guide_image/4-7.png",
-    "../src/guide_image/4-8.png"
+  "vitamin_d_effects.html": [
+    "../src/pregancyD-1/1-1.png",
+    "../src/pregancyD-1/1-2.png",
+    "../src/pregancyD-1/2.png",
+    "../src/pregancyD-1/3.png"
+  ],
+  "how_to_get_vitamin_d.html": [
+    "../src/pregancyD-2/org 1.27.18 PM.png",
+    "../src/pregancyD-2/4-1.png",
+    "../src/pregancyD-2/4-2.png",
+    "../src/pregancyD-2/4-3.png",
+    "../src/pregancyD-2/4-4.png",
+    "../src/pregancyD-2/4-5.png",
+    "../src/pregancyD-2/4-6.png",
+    "../src/pregancyD-2/4-7.png",
+    "../src/pregancyD-2/4-8.png"
   ]
 };
 

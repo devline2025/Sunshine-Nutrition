@@ -2,21 +2,23 @@ const currentPage = window.location.pathname.split("/").pop();
 const jsonFilename = currentPage.replace(".html", ".json");
 
 const localFallback = {
-  "baby_vitamin_d_guide.html": [
-    "../src/guide_image/1-1.png",
-    "../src/guide_image/1-2.png",
-    "../src/guide_image/2-1.png",
-    "../src/guide_image/3-1.png",
-    "../src/guide_image/3-2.png",
-    "../src/guide_image/3-3.png",
-    "../src/guide_image/3-4.png",
-    "../src/guide_image/3-5.png",
-    "../src/guide_image/3-6.png",
-    "../src/guide_image/3-7.png",
-    "../src/guide_image/3-8.png",
-    "../src/guide_image/3-9.png",
-    "../src/guide_image/3-10.png",
-    "../src/guide_image/4.png"
+  "vitamin_d_effects.html": [
+    "../src/babyD-1/1-1.png",
+    "../src/babyD-1/1-2.png",
+    "../src/babyD-1/2-1.png",
+    "../src/babyD-1/3-1.png",
+    "../src/babyD-1/3-2.png"
+  ],
+  "how_to_get_vitamin_d.html": [
+    "../src/babyD-2/org.png",
+    "../src/babyD-2/3-3.png",
+    "../src/babyD-2/3-4.png",
+    "../src/babyD-2/3-5.png",
+    "../src/babyD-2/3-6.png",
+    "../src/babyD-2/3-7.png",
+    "../src/babyD-2/3-8.png",
+    "../src/babyD-2/3-9.png",
+    "../src/babyD-2/3-10.png"
   ]
 };
 
